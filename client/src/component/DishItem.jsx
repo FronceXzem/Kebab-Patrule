@@ -15,7 +15,7 @@ function DishItem({dish, setDishes, user}) {
 
     const updateDish = async (e) => {
         e.preventDefault();
-       const response = await axiosInstance.patch(`/dishes/${dish.id}`, {title, price, image});
+       const response = await axiosInstance.put(`/dishes/${dish.id}`, {title, price, image});
        if (response.status === 200) {
         setDishes((prev) => prev.map((el) => el.id === response.data.dish.id ? response.data.dish : el))
        }
@@ -41,21 +41,20 @@ function DishItem({dish, setDishes, user}) {
 
             {isShowUpdate && (
                 <form onSubmit={updateDish}>
-                    <label>🥙
-                        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}>
-                        Блюдо
-                        </input>
-                    </label>
-                    <label>💰
-                        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}>
-                        Цена
-                        </input>
-                    </label>
-                    <label>🌅
-                        <input type="text" value={image} onChange={(e) => setImage(e.target.value)}>
-                        Добавь картинку
-                        </input>
-                    </label>
+        <label>🥙
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Блюдо'/>
+            
+          
+        </label>
+        <label>💰
+            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Цена'/>
+            
+          
+        </label>
+        <label>🌅
+            <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Добавь картинку'/>
+  
+        </label>
                     <button type="submit">Загрузить обновления</button>
                 </form>
             )}
