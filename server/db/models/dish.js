@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Food.init({
+  Dish.init({
     title: DataTypes.STRING,
     price: DataTypes.INTEGER,
     image: DataTypes.STRING
