@@ -8,7 +8,7 @@ function RegPage({setUser}) {
   const [password, setPassword] = useState("")
   const [rpassword, setRpassword] = useState("")
   const [name, setName] = useState("")
-  const [status, setStatus] = useState()
+  const [status, setStatus] = useState("")
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const navigation = useNavigate();
@@ -52,20 +52,20 @@ function RegPage({setUser}) {
       </label>
       <label>
         Name
-        <input type="password"   value={name} onChange={(e) => setName(e.target.value)}  ></input>
+        <input type="text"   value={name} onChange={(e) => setName(e.target.value)}  ></input>
       </label>
       {/* <label>
         Status
         <input type="password"   value={status} onChange={(e) => setStatus(e.target.value)}  ></input>
       </label> */}
 
-      <select name="status" onChange={(e) => setStatus(e.target.value)}>
-      <option value="">Статус</option>
+      <select name="status" value={status} onChange={(e) => setStatus(e.target.value)}>
+      <option >Статус</option>
        
-          <option value={status}>
+          <option >
             Курьер
           </option>
-          <option value={status}>
+          <option >
             Покупатель
           </option>
        
