@@ -17,7 +17,7 @@ function LoginPage({ setUser }) {
       // console.log(response);
       setUser(response.data.user);
       SetAccessToken(response.data.accessToken)
-      navigation("/");
+      navigation("/dish");
     }
   };
 

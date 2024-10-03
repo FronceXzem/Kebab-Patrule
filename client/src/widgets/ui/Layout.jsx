@@ -1,17 +1,20 @@
 import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import axiosInstance, { SetAccessToken } from "../../axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 
 function Layout( {user, setUser} ) {
-
+  const navigation = useNavigate();
 
   const logoutHandler = async () => {
     const response = await axiosInstance.delete("/auth/log");
+    
 
     if (response.status === 200) {
       setUser(null);
       SetAccessToken("")
+      navigation("/");
     }
   };
 
@@ -19,7 +22,8 @@ function Layout( {user, setUser} ) {
     <>
       <nav>
         <div>
-          <ul style={{ display: "flex", gap: "20px", listStyle: "none" }}>
+        
+          <ul  >
             <li>
               <Link to={"/"}>Главная</Link>
             </li>
@@ -44,7 +48,8 @@ function Layout( {user, setUser} ) {
               )}
             </li>
           </ul>
-        </div>
+          </div>
+        
       </nav>
       <div>
         <Outlet />
