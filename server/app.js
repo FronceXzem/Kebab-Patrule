@@ -15,5 +15,5 @@ app.use("/api", indexRouter);
 
 
 app.listen(process.env.PORT, () => {
-  console.log(`НАГИБАТОР${process.env.PORT}!`)
+  console.log(`Работаем на ${process.env.PORT}!`)
 });
