@@ -6,7 +6,7 @@ import DishItem from '../component/DishItem'
 
 function DishPage({user}) {
     const [dishes, setDishes] = useState([])
-
+console.log(user);
     const loadDishes = async () => {
         const response = await axiosInstance.get("/dishes")
     setDishes(response.data.dishes)

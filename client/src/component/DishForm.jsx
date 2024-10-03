@@ -19,19 +19,18 @@ const onSubmitHandler = async (e) => {
   return (
     <form onSubmit={onSubmitHandler}>
         <label>🥙
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}>
-            Блюдо
-            </input>
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Блюдо'/>
+            
+          
         </label>
         <label>💰
-            <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}>
-            Цена
-            </input>
+            <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Цена'/>
+            
+          
         </label>
         <label>🌅
-            <input type="text" value={image} onChange={(e) => setImage(e.target.value)}>
-            Добавь картинку
-            </input>
+            <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Добавь картинку'/>
+  
         </label>
         <button type="submit">Добавить</button>
     </form>
