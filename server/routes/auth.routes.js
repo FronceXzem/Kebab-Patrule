@@ -60,7 +60,7 @@ authRouter.post("/reg", async (req, res) => {
     }
   });
 
-  authRouter.delete("/logout", async (req, res) => {
+  authRouter.delete("/log", async (req, res) => {
     res.clearCookie("refreshToken")
     res.status(200).json({
       message: "Logout success"

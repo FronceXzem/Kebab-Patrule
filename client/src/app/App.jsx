@@ -1,12 +1,13 @@
 import * as React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Layout from "./Layout";
+import Layout from "../widgets/ui/Layout";
 
 
 import "./App.css";
 import LoginPage from "../pages/LoginPage";
 import RegPage from "../pages/RegPage";
+import DishPage from "../pages/DishPage";
 import { useState } from "react";
 import { useEffect } from "react";
 import NotFound from "../pages/NotFound";
@@ -15,7 +16,7 @@ import axiosInstance, { SetAccessToken } from "../axiosInstance";
 function App() {
   const [user, setUser] = useState(null);
 
-
+//Никитe- опрокинуть еду
 
   useEffect(() => {
     axiosInstance.get("/tokens/refresh").then(({ data }) => {
@@ -30,7 +31,10 @@ function App() {
       element: <Layout user={user} setUser={setUser} />,
       errorElement: <NotFound />,
       children: [
- 
+        {
+          path: "/dish",
+          element: <DishPage user={user}  />,
+        },
         {
           path: "/log",
           element: <LoginPage setUser={setUser} />,
