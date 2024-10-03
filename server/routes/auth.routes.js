@@ -6,6 +6,7 @@ const generateTokens = require("../utils/generateTokens");
 
 authRouter.post("/reg", async (req, res) => {
     const { email, password, name, status } = req.body;
+    console.log(req.body);
     try {
       if (!email.trim() || !password.trim()|| !name.trim() || !status) {
         res.status(400).json({
@@ -16,6 +17,8 @@ authRouter.post("/reg", async (req, res) => {
         const user = await UserService.createUser({
           email,
           password: hashPassword,
+          name,
+          status
         });
         const tmpUser = user.get();
         delete tmpUser.password;
