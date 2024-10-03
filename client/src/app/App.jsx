@@ -12,6 +12,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import NotFound from "../pages/NotFound";
 import axiosInstance, { SetAccessToken } from "../axiosInstance";
+import MainPage from "../pages/MainPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,6 +32,10 @@ function App() {
       element: <Layout user={user} setUser={setUser} />,
       errorElement: <NotFound />,
       children: [
+        {
+          path: "/",
+          element: <MainPage   />,
+        },
         {
           path: "/dish",
           element: <DishPage user={user}  />,

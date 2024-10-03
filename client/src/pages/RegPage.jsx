@@ -3,6 +3,7 @@ import { useState } from "react";
 import axiosInstance, { SetAccessToken } from "../axiosInstance";
 import { useNavigate } from "react-router-dom";
 import PasswordChecklist from "react-password-checklist";
+import ModalWindow from "../widgets/ui/Modal/Modal";
 
 function RegPage({ setUser }) {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ function RegPage({ setUser }) {
   const [status, setStatus] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [active, setActive] = useState(false);
   const navigation = useNavigate();
 
   const onSubmitHandler = async (e) => {
@@ -33,34 +35,40 @@ function RegPage({ setUser }) {
       if (response.status === 201) {
         setUser(response.data.user);
         SetAccessToken(response.data.accessToken);
-        navigation("/");
+        setActive(false)
+        // navigation("/");
       } else {
         setErrorMessage("Нету пользователя =(");
       }
     }
   };
 
+  const handlerShowForm = () => {
+    setActive(true)
+  }
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
-        <label>
-          Email
+      <button onClick={handlerShowForm}>Регистрация</button>
+      <ModalWindow active={active} setActive={setActive}>
+      <form onSubmit={onSubmitHandler} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+        <label >
+          Email 
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </label>
-        <label>
-          Password
+        <label >
+          Пароль 
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </label>
-        <label>
-          Repeat password
+        <label >
+          Повторите пароль 
           <input
             type="password"
             value={rpassword}
@@ -73,19 +81,14 @@ function RegPage({ setUser }) {
           value={password}
           valueAgain={rpassword}
         />
-        <label>
-          Name
+        <label >
+          Имя 
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></input>
         </label>
-        {/* <label>
-        Status
-        <input type="password"   value={status} onChange={(e) => setStatus(e.target.value)}  ></input>
-      </label> */}
-
         <select
           name="status"
           value={status}
@@ -98,6 +101,7 @@ function RegPage({ setUser }) {
 
         <button type="submit">Регистрация</button>
       </form>
+      </ModalWindow>
       {showError && (
         <div style={{ border: "1px solid red" }}>{errorMessage}</div>
       )}
