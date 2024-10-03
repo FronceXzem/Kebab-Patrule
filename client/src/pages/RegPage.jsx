@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axiosInstance, { SetAccessToken } from "../axiosInstance";
 import { useNavigate } from "react-router-dom";
+import PasswordChecklist from "react-password-checklist"
 
 function RegPage({setUser}) {
   const [email, setEmail] = useState("")
@@ -13,8 +14,12 @@ function RegPage({setUser}) {
   const [errorMessage, setErrorMessage] = useState("")
   const navigation = useNavigate();
 
+
   const onSubmitHandler = async(e) =>{
     e.preventDefault()
+    if (!email|| !password || !rpassword || !name || !status) {
+      alert("Пожалуйста, заполните все поля!");
+    }
     if (password !== rpassword){
       setErrorMessage("Пароли не совпадают")
       setShowError(true)
@@ -50,6 +55,12 @@ function RegPage({setUser}) {
         Repeat password
         <input type="password"   value={rpassword} onChange={(e) => setRpassword(e.target.value)}  ></input>
       </label>
+      <PasswordChecklist
+				rules={["minLength","number","capital","match"]}
+				minLength={5}
+				value={password}
+				valueAgain={rpassword}
+			/>
       <label>
         Name
         <input type="text"   value={name} onChange={(e) => setName(e.target.value)}  ></input>
