@@ -6,9 +6,10 @@ module.exports = {
   
      await queryInterface.bulkInsert('Users', [
       {
-      email: "1@1.ru",
+      email: "felasso3212@gmail.com",
       password: await bcrypt.hash("123", 10),
       name: "Никита",
+      address: "Дворцовый мост, коробка под мостом",
       status: "Курьер",
      
   },
@@ -16,6 +17,7 @@ module.exports = {
     email: "2@2.ru",
     password: await bcrypt.hash("123", 10),
     name: "Мария",
+    address: "Бейкер-стрит, 221б",
     status: "Покупатель",
     
 },
@@ -23,6 +25,7 @@ module.exports = {
   email: "3@3.ru",
   password: await bcrypt.hash("123", 10),
   name: "Дима",
+  address: "Улица пушкина, дом Колотушкина",
   status: "Покупатель",
   
 },

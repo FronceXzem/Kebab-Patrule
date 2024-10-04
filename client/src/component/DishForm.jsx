@@ -4,7 +4,8 @@ import axiosInstance from '../axiosInstance'
 function DishForm({setDishes}) {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
-    const [image, setImage] = useState("")  
+    const [image, setImage] = useState("") 
+    const [search, setSearch] = useState("")   
 
 const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ const onSubmitHandler = async (e) => {
 
 
   return (
+   
     <form onSubmit={onSubmitHandler}>
         <label>🥙
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Блюдо'/>
