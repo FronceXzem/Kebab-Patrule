@@ -12,6 +12,7 @@ function RegPage({ setUser }) {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [status, setStatus] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [active, setActive] = useState(false);
@@ -19,7 +20,7 @@ function RegPage({ setUser }) {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    if (!email || !password || !rpassword || !name || !address || !status) {
+    if (!email.trim() || !password.trim() || !rpassword.trim() || !name.trim() || !address.trim() || !status) {
       alert("Пожалуйста, заполните все поля!");
     }
     if (password !== rpassword) {
@@ -33,12 +34,13 @@ function RegPage({ setUser }) {
         name,
         address,
         status,
+        avatar
       });
       if (response.status === 201) {
         setUser(response.data.user);
         SetAccessToken(response.data.accessToken);
         setActive(false)
-        // navigation("/");
+        navigation("/dish");
       } else {
         setErrorMessage("Нету пользователя =(");
       }
@@ -77,7 +79,7 @@ function RegPage({ setUser }) {
             onChange={(e) => setRpassword(e.target.value)}
           ></input>
         </label>
-        <PasswordChecklist style={{color:'black', display: 'block'}}
+        <PasswordChecklist style={{color:'black', display: 'flex', fontSize: '10px', alignItems: 'end'}}
           rules={["minLength", "number", "match"]}
           minLength={5}
           value={password}
@@ -97,6 +99,14 @@ function RegPage({ setUser }) {
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
+          ></input>
+        </label>
+        <label style={{color:'black', display: 'block'}}>
+          Аватар
+          <input
+            type="text"
+            value={avatar}
+            onChange={(e) => setAvatar(e.target.value)}
           ></input>
         </label>
         <div className="selectContainer">

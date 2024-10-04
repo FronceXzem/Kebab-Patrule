@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "./logo.png"
 
 function Layout({ user, setUser }) {
+  console.log(user);
   const navigation = useNavigate();
 
   const logoutHandler = async () => {
@@ -70,6 +71,7 @@ function Layout({ user, setUser }) {
       </li>
       {user && (
         <li style={{ display: "flex", alignItems: "center" }}>
+          {user.avatar ? (<img className='logo' src={user.avatar} alt="picture" />): (<img className='logo' src='https://avatars.mds.yandex.net/i?id=0dc05f79770a4640dd72e281996c6c320ecd27cbd11650e7-9657345-images-thumbs&n=13' alt="picture" /> )}
           <p style={{ margin: 0, marginRight: "10px", color: "white" }}>
             {"Привет, " + user.name}
           </p>
@@ -93,9 +95,11 @@ function Layout({ user, setUser }) {
     </ul>
   </div>
 </nav>
-      <div style={{ marginTop: "50px" }}>
+      <div style={{ marginTop: "50px", marginBottom: '50px' }}>
         <Outlet />
       </div>
+      <div className="footer">
+        <p className="footerContent">© 2024 Kebab Patrol Все права защищены</p></div>
     </>
   );
 }
