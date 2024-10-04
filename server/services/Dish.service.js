@@ -39,8 +39,16 @@ static async updateDish(id, data, userId) {
         } 
         return await dish.update(data);
     } catch (error) {
-        
+        return error
     }
 }
+
+static async getDishTitleById(id) {
+    try {
+      return await Dish.findOne({ where: { id } });
+    } catch (error) {
+        return error;
+    }
+  }
 }
 module.exports = DishService;

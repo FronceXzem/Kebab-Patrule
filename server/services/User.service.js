@@ -24,6 +24,14 @@ class UserService {
       throw new Error(error);
     }
   }
+
+  static async getUserById(id) {
+    try {
+      return await User.findOne({ where: { id } });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = UserService;
