@@ -1,0 +1,186 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+h1 {
+  font-size: 25px;
+  padding: 10px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../widgets/ui/backim.jpg");
+  background-size: cover; /* Покрытие всей области */
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px); /* Применение размытия */
+  z-index: -1; /* Отправляем псевдоэлемент на задний план */
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.notFound {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-image: url("../widgets/ui/404.jpg");
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 950px;
+  justify-content: center;
+}
+ul {
+  margin-right: 15px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #d16f14aa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+nav {
+  position: fixed; /* Фиксируем навигацию */
+  top: 0; /* Прижимаем к верхней части страницы */
+  left: 0; /* Прижимаем к левому краю */
+  width: 100%; /* Растягиваем на всю ширину экрана */
+  height: 60px;
+  /* padding: 15px 0; Отступы сверху и снизу */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Тень для отделения */
+  z-index: 1000; /* Обеспечиваем, чтобы навигация всегда была выше остальных элементов */
+  background-color: #282c34;
+  padding: 5px 0;
+}
+
+.footer {
+  position: fixed; /* Фиксируем навигацию */
+  bottom: 0; /* Прижимаем к верхней части страницы */
+  left: 0; /* Прижимаем к левому краю */
+  width: 100%; /* Растягиваем на всю ширину экрана */
+  height: 30px;
+  box-shadow: 0px 0px 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #282c34;
+  display: flex;
+}
+
+.footerContent {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding-top: 5px;
+  font-size: 10px;
+  padding-left: 2px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  width: 240px; /* Фиксированная ширина для всех карточек */
+  height: auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+  text-align: center; /* Центрируем текст внутри карточки */
+  margin: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+img {
+  width: 100%; /* Изображение растягивается на всю ширину карточки */
+  height: 200px; /* Фиксированная высота для всех изображений */
+  object-fit: cover; /* Обрезка изображения без искажения */
+  border-radius: 10px; /* Скругленные углы только сверху */
+}
+
+.card h2 {
+  font-size: 15px;
+  margin: 10px 0; /* Отступ сверху и снизу */
+}
+
+.card p {
+  font-size: 15px;
+  color: white; /* Цвет текста */
+}
+input,
+select {
+  padding: 6px;
+  border-radius: 10px;
+  margin: 5px;
+  border-width: 1px;
+}
+
+label {
+  text-align: right;
+  color: black;
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin: 5px;
+}
+button:hover {
+  border-color: #ee8700;
+}
+
+.searchInput {
+  background: black;
+  color: white;
+  width: 500px;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
