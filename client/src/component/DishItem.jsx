@@ -26,7 +26,8 @@ function DishItem({dish, setDishes, user}) {
     }
 
   return (
-    <div>
+    <div className='cardContainer'>
+    <div className='card'>
         <img src={dish.image} alt="img" />
         <h2>{dish.title}</h2>
         <p>Первоначальная цена: {dish.price} рублей</p>
@@ -59,6 +60,7 @@ function DishItem({dish, setDishes, user}) {
                 </form>
             )}
         
+    </div>
     </div>
   )
 }

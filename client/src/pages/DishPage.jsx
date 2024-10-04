@@ -19,7 +19,7 @@ console.log(user);
 
   return (
     <>
-    <div>
+    <div className='wrapper'>
         {user && user.status === "Курьер" && <DishForm setDishes={setDishes}/>}
 
         {dishes && dishes.map((dish) => (

@@ -50,16 +50,16 @@ function RegPage({ setUser }) {
     <div>
       <button onClick={handlerShowForm}>Регистрация</button>
       <ModalWindow active={active} setActive={setActive}>
-      <form onSubmit={onSubmitHandler} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-        <label >
+      <form onSubmit={onSubmitHandler} >
+        <label style={{color:'black', display: 'block'}} >
           Email 
-          <input
+          <input 
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></input>
-        </label>
-        <label >
+        </label >
+        <label style={{color:'black', display: 'block'}}>
           Пароль 
           <input
             type="password"
@@ -67,7 +67,7 @@ function RegPage({ setUser }) {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </label>
-        <label >
+        <label style={{color:'black', display: 'block'}}>
           Повторите пароль 
           <input
             type="password"
@@ -75,13 +75,13 @@ function RegPage({ setUser }) {
             onChange={(e) => setRpassword(e.target.value)}
           ></input>
         </label>
-        <PasswordChecklist
+        <PasswordChecklist style={{color:'black', display: 'block'}}
           rules={["minLength", "number", "match"]}
           minLength={5}
           value={password}
           valueAgain={rpassword}
         />
-        <label >
+        <label style={{color:'black', display: 'block'}}>
           Имя 
           <input
             type="text"
@@ -89,17 +89,20 @@ function RegPage({ setUser }) {
             onChange={(e) => setName(e.target.value)}
           ></input>
         </label>
+        <div className="selectContainer">
         <select
           name="status"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
+          style={{display: 'block'}}
         >
           <option>Статус</option>
           <option>Курьер</option>
           <option>Покупатель</option>
         </select>
+        </div>
 
-        <button type="submit">Регистрация</button>
+        <button type="submit" style={{border:'0.5px solid black'}}>Регистрация</button>
       </form>
       </ModalWindow>
       {showError && (

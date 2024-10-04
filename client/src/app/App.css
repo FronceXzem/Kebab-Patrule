@@ -36,6 +36,13 @@ body::before {
 
 }
 
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 950px;
+  justify-content: space-between;
+}
+
 
 .logo {
   height: 6em;
@@ -43,6 +50,7 @@ body::before {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -64,14 +72,75 @@ nav {
 }
 
 
-img{
+/* img{
   border-radius: 10px;
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover;
+}
+
+.imageDiv {
+  display: flex; /* Используем flexbox */
+    /* flex-wrap: wrap; /* Позволяем карточкам переноситься на следующую строку */
+    /* gap: 20px; Расстояние между карточками */
+    /* justify-content: center; Выравнивание карточек по центру */
+/* } */ */ */
+
+.cardContainer {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center;
+  
+
+}
+
+.card {
+
+  width:240px; /* Фиксированная ширина для всех карточек */
+  height: 300px;
+  padding: 10px;
+ 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
+  text-align: center; /* Центрируем текст внутри карточки */
+  margin: 5px;
+  background-color: rgba(0, 0, 0, 0.6)
+}
+
+img {
+  width: 100%; /* Изображение растягивается на всю ширину карточки */
+    height: 200px; /* Фиксированная высота для всех изображений */
+    object-fit: cover; /* Обрезка изображения без искажения */
+    border-radius: 10px; /* Скругленные углы только сверху */
+ 
+}
+
+.card h2 {
+  font-size: 15px;
+  margin: 10px 0; /* Отступ сверху и снизу */
+}
+
+.card p {
+  font-size: 11px;
+  color: white; /* Цвет текста */
 }
 input,
 select {
   padding: 10px;
   border-radius: 10px;
+  margin: 5px;
   
+ 
+}
+
+label {
+  text-align: right
+}
+
+.selectContainer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 button {
