@@ -5,7 +5,7 @@ const jwtConfig = require("../config/jwtConfig");
 const generateTokens = require("../utils/generateTokens");
 
 authRouter.post("/reg", async (req, res) => {
-    const { email, password, name, address, status } = req.body;
+    const { email, password, name, address, status, avatar } = req.body;
     console.log(req.body);
     try {
       if (!email.trim() || !password.trim()|| !name.trim() || !status || !address.trim()) {
@@ -19,7 +19,8 @@ authRouter.post("/reg", async (req, res) => {
           password: hashPassword,
           name,
           address,
-          status
+          status,
+          avatar
         });
         const tmpUser = user.get();
         delete tmpUser.password;
