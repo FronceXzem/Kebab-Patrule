@@ -31,7 +31,7 @@ function DishItem({dish, setDishes, user}) {
     <div className='card'>
         <img src={dish.image} alt="img" />
         <h2>{dish.title}</h2>
-        <p>Первоначальная цена: {dish.price} рублей</p>
+        <p style={{textDecoration: 'line-through'}}>Начальная цена: {dish.price} рублей</p>
         <p>Цена со скидкой 30%: {Math.round(dish.price * 0.7)} рублей</p>
 
         {user && user.status === "Курьер" && dish.userId === user.id && (

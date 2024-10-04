@@ -23,17 +23,17 @@ const onSubmitHandler = async (e) => {
         margin: '10px'
       }}>
 
-        <label>🥙
+        <label>
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Блюдо'/>
             
           
         </label>
-        <label>💰
+        <label>
             <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder='Цена'/>
             
           
         </label>
-        <label>🌅
+        <label>
             <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Добавь картинку'/>
   
         </label>
