@@ -29,7 +29,7 @@ async function getDishesController(req,res) {
     }
 
         async function deleteDishController(req,res) {
-            console.log(111111111111)
+           
             const {id} = req.params;
             
             
