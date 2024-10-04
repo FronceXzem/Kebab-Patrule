@@ -20,7 +20,7 @@ const onSubmitHandler = async (e) => {
   return (
 
     <form onSubmit={onSubmitHandler} style={{
-        margin: '10px'
+        margin: '10px', width: '1000px'
       }}>
 
         <label>
