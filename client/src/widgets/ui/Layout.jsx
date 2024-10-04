@@ -42,10 +42,11 @@ function Layout({ user, setUser }) {
         margin: 0,
       }}
     >
-      <img className='logo' src={logo} alt="" />
+      
       <li>
         <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
-          Главная
+          
+          <button style={{all: 'unset'}}><img className='logo' src={logo} /></button>
         </Link>
       </li>
       {!user && (

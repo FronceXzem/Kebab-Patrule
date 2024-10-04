@@ -106,7 +106,7 @@ nav {
 
 .card {
   width: 240px; /* Фиксированная ширина для всех карточек */
-  height: 360px;
+  height: auto;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
@@ -151,6 +151,9 @@ label {
 
 button {
   margin: 5px;
+}
+button:hover {
+  border-color: #ee8700;
 }
 
 .searchInput {
