@@ -8,7 +8,9 @@ function DishItem({dish, setDishes, user}) {
     const [image, setImage] = useState("")  
 
     const deleteDish = async (id) => {
-        await axiosInstance.delete(`/dishes/${id}`)
+        console.log('deleteDish', id)
+        console.log(dish.userId, user);
+        await axiosInstance.delete(`/dishes/${id}`, {data:{userId: dish.userId, user}});
         setDishes((prev) => prev.filter((el) => el.id !== id))
     }
 
