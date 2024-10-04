@@ -28,11 +28,12 @@ function DishItem({dish, setDishes, user}) {
     }
 
   return (
-    <div>
+    <div className='cardContainer'>
+    <div className='card'>
         <img src={dish.image} alt="img" />
         <h2>{dish.title}</h2>
-        <p>{dish.price}</p>
-        <p>%{dish.price * 0.7}%</p>
+        <p>Первоначальная цена: {dish.price} рублей</p>
+        <p>Цена со скидкой 30%: {Math.round(dish.price * 0.7)} рублей</p>
 
         {user && user.status === "Курьер" && dish.userId === user.id && (
             <button onClick={() => setIsShowUpdate((prev) => !prev)}>Обновить блюдо</button>
@@ -61,6 +62,7 @@ function DishItem({dish, setDishes, user}) {
                 </form>
             )}
         
+    </div>
     </div>
   )
 }

@@ -18,8 +18,11 @@ const onSubmitHandler = async (e) => {
 
 
   return (
-   
-    <form onSubmit={onSubmitHandler}>
+
+    <form onSubmit={onSubmitHandler} style={{
+        margin: '10px'
+      }}>
+
         <label>🥙
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Блюдо'/>
             
@@ -34,7 +37,15 @@ const onSubmitHandler = async (e) => {
             <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Добавь картинку'/>
   
         </label>
-        <button type="submit">Добавить</button>
+        <button type="submit" style={{
+              backgroundColor: "#ff6347",
+              color: "white",
+              border: "none",
+              padding: "5px 10px", // Уменьшено значение padding для кнопки
+              fontSize: "14px",
+              cursor: "pointer",
+              borderRadius: "5px",
+            }}>Добавить</button>
     </form>
   )
 }

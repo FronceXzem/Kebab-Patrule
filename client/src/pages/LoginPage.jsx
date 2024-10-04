@@ -17,7 +17,7 @@ function LoginPage({ setUser }) {
       // console.log(response);
       setUser(response.data.user);
       SetAccessToken(response.data.accessToken)
-      navigation("/");
+      navigation("/dish");
     }
   };
 
@@ -25,7 +25,7 @@ function LoginPage({ setUser }) {
     <div>
       <form onSubmit={onSubmitHandler}>
         <label>
-          Email
+          Email 
           <input
             type="email"
             value={email}
@@ -33,7 +33,7 @@ function LoginPage({ setUser }) {
           ></input>
         </label>
         <label>
-          Pass
+           Пароль 
           <input
             type="password"
             value={password}
