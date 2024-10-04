@@ -17,7 +17,7 @@ import MainPage from "../pages/MainPage";
 function App() {
   const [user, setUser] = useState(null);
 
-//Никитe- опрокинуть еду
+
 
   useEffect(() => {
     axiosInstance.get("/tokens/refresh").then(({ data }) => {

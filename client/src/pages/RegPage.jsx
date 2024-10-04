@@ -10,6 +10,7 @@ function RegPage({ setUser }) {
   const [password, setPassword] = useState("");
   const [rpassword, setRpassword] = useState("");
   const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
   const [status, setStatus] = useState("");
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,7 +19,7 @@ function RegPage({ setUser }) {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    if (!email || !password || !rpassword || !name || !status) {
+    if (!email || !password || !rpassword || !name || !address || !status) {
       alert("Пожалуйста, заполните все поля!");
     }
     if (password !== rpassword) {
@@ -30,6 +31,7 @@ function RegPage({ setUser }) {
         email,
         password,
         name,
+        address,
         status,
       });
       if (response.status === 201) {
@@ -87,6 +89,14 @@ function RegPage({ setUser }) {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+          ></input>
+        </label>
+        <label style={{color:'black', display: 'block'}}>
+          Адрес 
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           ></input>
         </label>
         <div className="selectContainer">
