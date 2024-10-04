@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+// import notfound from "../widgets/ui/404.jpg"
 
 function NotFound() {
   return (
-   <div>
-    <img src="https://i-a.d-cd.net/Y6ytL97oZwpN9gqoCCB3pbXo2iI-1920.jpg" alt="notfound" />
+   <div className='notFound'>
+    
     <button>
     <Link to={"/"}>Вернуться на главную</Link>
     </button>
