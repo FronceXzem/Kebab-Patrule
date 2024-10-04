@@ -5,10 +5,10 @@ const jwtConfig = require("../config/jwtConfig");
 const generateTokens = require("../utils/generateTokens");
 
 authRouter.post("/reg", async (req, res) => {
-    const { email, password, name, status } = req.body;
+    const { email, password, name, address, status, avatar } = req.body;
     console.log(req.body);
     try {
-      if (!email.trim() || !password.trim()|| !name.trim() || !status) {
+      if (!email.trim() || !password.trim()|| !name.trim() || !status || !address.trim()) {
         res.status(400).json({
           message: "Заполните, пожалуйста, все поля!",
         });
@@ -18,7 +18,9 @@ authRouter.post("/reg", async (req, res) => {
           email,
           password: hashPassword,
           name,
-          status
+          address,
+          status,
+          avatar
         });
         const tmpUser = user.get();
         delete tmpUser.password;

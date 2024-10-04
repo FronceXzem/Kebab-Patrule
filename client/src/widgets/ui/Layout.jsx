@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import axiosInstance, { SetAccessToken } from "../../axiosInstance";
 import { useNavigate } from "react-router-dom";
+import logo from "./logo.png"
 
 function Layout({ user, setUser }) {
   const navigation = useNavigate();
@@ -40,11 +41,14 @@ function Layout({ user, setUser }) {
         margin: 0,
       }}
     >
+      <img className='logo' src={logo} alt="" />
       <li>
         <Link to={"/"} style={{ textDecoration: "none", color: "white" }}>
           Главная
         </Link>
       </li>
+      {!user && (
+        <>
       <li>
         <Link to={"/log"} style={{ textDecoration: "none", color: "white" }}>
           Авторизация
@@ -54,7 +58,11 @@ function Layout({ user, setUser }) {
         <Link to={"/reg"} style={{ textDecoration: "none", color: "white" }}>
           Регистрация
         </Link>
+        
       </li>
+      </>
+      )
+}
       <li>
         <Link to={"/dish"} style={{ textDecoration: "none", color: "white" }}>
           Еда

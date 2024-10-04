@@ -12,7 +12,7 @@ function LoginPage({ setUser }) {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    const response = await axiosInstance.post("/auth/log", { email, password, name, status });
+    const response = await axiosInstance.post("/auth/log", { email, password });
     if (response.status === 200) {
       // console.log(response);
       setUser(response.data.user);

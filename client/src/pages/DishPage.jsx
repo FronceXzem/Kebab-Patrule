@@ -22,9 +22,10 @@ console.log(user);
 
   return (
     <>
+    <input className='searchInput' type="text" value= {search} onChange={(e) => setSearch(e.target.value)} placeholder='Поиск...'/>
     <div className='wrapper'>
         {user && user.status === "Курьер" && <DishForm setDishes={setDishes}/>}
-<input type="text" value= {search} onChange={(e) => setSearch(e.target.value)} placeholder='Поиск...'/>
+
         {filteredDishes && filteredDishes.map((dish) => (
             <DishItem key={dish.id} dish={dish} setDishes={setDishes} user={user}/>
         ))}
