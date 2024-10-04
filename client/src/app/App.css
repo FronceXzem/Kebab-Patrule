@@ -74,9 +74,7 @@ nav {
   /* padding: 15px 0; Отступы сверху и снизу */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Тень для отделения */
   z-index: 1000; /* Обеспечиваем, чтобы навигация всегда была выше остальных элементов */
-
   background-color: #282c34;
-
   padding: 5px 0;
 }
 
@@ -110,7 +108,6 @@ nav {
   width: 240px; /* Фиксированная ширина для всех карточек */
   height: 360px;
   padding: 10px;
-
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для объема */
   text-align: center; /* Центрируем текст внутри карточки */
